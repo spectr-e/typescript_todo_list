@@ -27,6 +27,7 @@ form?.addEventListener("submit", (e) => {
 
 	todos.push(todo)
 	renderTodo(todo)
+	saveTodos()
 	input.value = ""
 })
 
@@ -61,4 +62,8 @@ const renderTodo = (todo: Todo) => {
 	label.append(checkBox, textElem)
 	listItem.append(label, delBtn)
 	list.append(listItem)
+}
+
+const saveTodos = () => {
+	localStorage.setItem("todos", JSON.stringify(todos))
 }
