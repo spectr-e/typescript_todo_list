@@ -53,6 +53,10 @@ const renderTodo = (todo: Todo) => {
 	const delBtn = document.createElement("button")
 	delBtn.classList.add("delete-btn")
 	delBtn.innerText = "Delete"
+	delBtn.addEventListener("click", () => {
+		listItem.remove()
+		todos = todos.filter((todoItem) => todo.id !== todoItem.id)
+	})
 
 	label.append(checkBox, textElem)
 	listItem.append(label, delBtn)
