@@ -42,6 +42,9 @@ const renderTodo = (todo: Todo) => {
 	checkBox.classList.add("label-input")
 	checkBox.type = "checkbox"
 	checkBox.checked = todo.completed
+	checkBox.addEventListener("change", () => {
+		todo.completed = checkBox.checked
+	})
 
 	const textElem = document.createElement("span")
 	textElem.classList.add("label-text")
