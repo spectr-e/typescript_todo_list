@@ -26,6 +26,32 @@ form?.addEventListener("submit", (e) => {
 	}
 
 	todos.push(todo)
-	// renderTodo(todo)
+	renderTodo(todo)
 	input.value = ""
 })
+
+const renderTodo = (todo: Todo) => {
+	const listItem = document.createElement("li")
+	listItem.classList.add("list-item")
+
+	const label = document.createElement("label")
+	label.classList.add("list-item-label")
+	label.htmlFor = todo.id
+
+	const checkBox = document.createElement("input")
+	checkBox.classList.add("label-input")
+	checkBox.type = "checkbox"
+	checkBox.checked = todo.completed
+
+	const textElem = document.createElement("span")
+	textElem.classList.add("label-text")
+	textElem.innerText = todo.text
+
+	const delBtn = document.createElement("button")
+	delBtn.classList.add("delete-btn")
+	delBtn.innerText = "Delete"
+
+	label.append(checkBox, textElem)
+	listItem.append(label, delBtn)
+	list.append(listItem)
+}
